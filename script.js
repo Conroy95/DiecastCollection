@@ -16,11 +16,11 @@ function renderCollection(collection) {
     const card = document.createElement('div');
     card.className = 'card';
     card.innerHTML = `
-      <img src="img/${item.foto}" alt="${item.merk} ${item.model}">
+      <img src="img/${item.Foto}" alt="${item.Merk} ${item.Model}">
       <div class="card-content">
-        <h3>${item.merk} ${item.model}</h3>
-        <p>Schaal: ${item.schaal}</p>
-        <p>Bouwjaar: ${item.jaar}</p>
+        <h3>${item.Merk} ${item.Model}</h3>
+        <p>Schaal: ${item.Schaal}</p>
+        <p>Bouwjaar: ${item.Jaar}</p>
       </div>`;
     container.appendChild(card);
   });
