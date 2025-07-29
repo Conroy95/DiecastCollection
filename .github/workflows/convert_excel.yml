@@ -1,4 +1,4 @@
-name: Convert Excel to JSON
+name: Excel naar JSON converter
 
 on:
   push:
@@ -10,34 +10,32 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repo
+      - name: Repository ophalen
         uses: actions/checkout@v3
 
-      - name: Setup Python
+      - name: Python instellen
         uses: actions/setup-python@v4
         with:
-          python-version: 3.11
+          python-version: '3.x'
 
-      - name: Install dependencies
+      - name: Benodigde pakketten installeren
         run: |
           pip install pandas openpyxl
 
-      - name: Convert Excel to JSON
+      - name: Excel omzetten naar JSON
         run: |
-          mkdir -p data
-          python3 <<EOF
+          python <<EOF
 import pandas as pd
-df = pd.read_excel("data/database.xlsx")
-df.to_json("data/collection.json", orient="records", force_ascii=False, indent=2)
+df = pd.read_excel('data/database.xlsx')
+df.to_json('data/collection.json', orient='records', indent=2, force_ascii=False)
 EOF
-          cat data/collection.json
 
-      - name: Commit & Push JSON
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: JSON committen en pushen
         run: |
           git config --global user.name "github-actions"
           git config --global user.email "actions@github.com"
           git add data/collection.json
-          git commit -m "Auto: collection.json bijgewerkt" || echo "Geen wijzigingen"
+          git commit -m "Automatisch bijgewerkte collection.json" || echo "Geen wijzigingen"
           git push
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
