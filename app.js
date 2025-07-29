@@ -43,6 +43,7 @@ function showModal(car) {
   detailsEl.innerHTML = `
     <strong>Jaar:</strong> ${car.Jaar || 'Onbekend'}<br />
     <strong>Schaal:</strong> ${car.Schaal || 'Onbekend'}<br />
+    <strong>Driver:</strong> ${car.Driver || 'Onbekend'}<br />
     ${car.Opmerking ? `<strong>Opmerking:</strong> ${car.Opmerking}` : ''}
   `;
 
