@@ -28,15 +28,14 @@ jobs:
           python3 <<EOF
 import pandas as pd
 df = pd.read_excel("data/database.xlsx")
-# Kolommen hernoemen naar gewenste JSON-sleutels
 df = df.rename(columns={
-    "Merk": "Merk",
-    "Model": "Model",
-    "Jaar": "Jaar",
-    "Schaal": "Schaal",
-    "Coureur": "Coureur",
-    "Afbeelding": "Afbeelding",
-    "Opmerking": "Opmerking"
+    "Merk": "merk",
+    "Model": "model",
+    "Jaar": "jaar",
+    "Schaal": "schaal",
+    "Coureur": "coureur",
+    "Afbeelding": "foto",
+    "Opmerking": "opmerking"
 })
 df.to_json("data/collection.json", orient="records", force_ascii=False, indent=2)
 EOF
