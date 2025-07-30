@@ -1,4 +1,4 @@
-name: Excel naar JSON converter
+name: Convert Excel to JSON
 
 on:
   push:
@@ -10,13 +10,13 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repository
+      - name: Checkout repo
         uses: actions/checkout@v3
 
-      - name: Set up Python
+      - name: Setup Python
         uses: actions/setup-python@v4
         with:
-          python-version: '3.x'
+          python-version: 3.11
 
       - name: Install dependencies
         run: |
@@ -24,14 +24,30 @@ jobs:
 
       - name: Convert Excel to JSON
         run: |
-          python -c "import pandas as pd; df = pd.read_excel('data/database.xlsx'); df.to_json('data/collection.json', orient='records', indent=2, force_ascii=False)"
+          mkdir -p data
+          python3 <<EOF
+import pandas as pd
+df = pd.read_excel("data/database.xlsx")
+# Kolommen hernoemen naar gewenste JSON-sleutels
+df = df.rename(columns={
+    "Merk": "Merk",
+    "Model": "Model",
+    "Jaar": "Jaar",
+    "Schaal": "Schaal",
+    "Coureur": "Coureur",
+    "Afbeelding": "Afbeelding",
+    "Opmerking": "Opmerking"
+})
+df.to_json("data/collection.json", orient="records", force_ascii=False, indent=2)
+EOF
+          cat data/collection.json
 
-      - name: Commit JSON output
-        run: |
-          git config user.name 'github-actions'
-          git config user.email 'actions@github.com'
-          git add data/collection.json
-          git commit -m 'Update collection.json from Excel' || echo 'No changes to commit'
-          git push
+      - name: Commit & Push JSON
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          git config --global user.name "github-actions"
+          git config --global user.email "actions@github.com"
+          git add data/collection.json
+          git commit -m "Auto: collection.json bijgewerkt" || echo "Geen wijzigingen"
+          git push
