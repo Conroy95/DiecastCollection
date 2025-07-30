@@ -27,13 +27,13 @@ function renderCollection(collection) {
     const card = document.createElement('div');
     card.className = 'card';
     card.innerHTML = `
-      <img src="img/${item.foto || 'placeholder.jpg'}" alt="${item.merk} ${item.model}" onerror="this.src='img/placeholder.jpg'">
+      <img src="img/${item.foto || 'placeholder.jpg'}" alt="${item.merk ?? 'Onbekend'} ${item.model ?? ''}" onerror="this.src='img/placeholder.jpg'">
       <div class="card-content">
-		<h3>${item.merk} ${item.model}</h3>
-		<p>Schaal: ${item.schaal}</p>
-		<p>Bouwjaar: ${item.jaar}</p>
-		${item.coureur ? `<p>Coureur: ${item.coureur}</p>` : ''}
-		${item.opmerking ? `<p><em>${item.opmerking}</em></p>` : ''}
+        <h3>${item.merk ?? 'Onbekend'} ${item.model ?? ''}</h3>
+        <p>Schaal: ${item.schaal ?? '–'}</p>
+        <p>Bouwjaar: ${item.jaar ?? '–'}</p>
+        ${item.coureur ? `<p>Coureur: ${item.coureur}</p>` : ''}
+        ${item.opmerking ? `<p><em>${item.opmerking}</em></p>` : ''}
       </div>`;
     container.appendChild(card);
   });
