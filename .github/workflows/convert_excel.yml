@@ -28,15 +28,6 @@ jobs:
           python3 <<EOF
 import pandas as pd
 df = pd.read_excel("data/database.xlsx")
-df = df.rename(columns={
-    "Merk": "merk",
-    "Model": "model",
-    "Jaar": "jaar",
-    "Schaal": "schaal",
-    "Coureur": "coureur",
-    "Afbeelding": "foto",
-    "Opmerking": "opmerking"
-})
 df.to_json("data/collection.json", orient="records", force_ascii=False, indent=2)
 EOF
           cat data/collection.json
