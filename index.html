@@ -1,35 +1,22 @@
 <!DOCTYPE html>
 <html lang="nl">
 <head>
-	<meta charset="UTF-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1" />
-	<title>Diecast Collection</title>
-	<link rel="stylesheet" href="style.css" />
-	<link rel="manifest" href="manifest.json" />
-	<link rel="apple-touch-icon" sizes="180x180" href="fav/apple-touch-icon.png" />
-	<link rel="icon" href="fav/favicon.ico" />
-	<meta name="theme-color" content="#333" />
-
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Mijn Diecast Collectie</title>
+  <meta name="theme-color" content="#222222" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="manifest" href="manifest.json" />
+  <link rel="icon" href="fav/favicon.ico" />
+  <link rel="apple-touch-icon" href="fav/apple-icon-180x180.png" />
 </head>
 <body>
   <header>
     <h1>Mijn Diecast Collectie</h1>
+    <input type="text" id="zoek" placeholder="Zoek op merk of model..." />
   </header>
-
-  <main>
-    <div id="collection" class="grid"></div>
-  </main>
-
-  <!-- Modal -->
-  <div id="modal" class="modal hidden">
-    <div class="modal-content">
-      <button id="closeModal" class="close-btn">&times;</button>
-      <img id="modal-img" src="" alt="Auto afbeelding" />
-      <h2 id="modal-title"></h2>
-      <p id="modal-details"></p>
-    </div>
-  </div>
-
+  <main id="collection"></main>
   <script src="app.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>

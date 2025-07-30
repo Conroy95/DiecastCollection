@@ -6,11 +6,13 @@ self.addEventListener('install', event => {
         'style.css',
         'manifest.json',
         'app.js',
-        'script.js'
+        'script.js',
+        'img/placeholder.jpg'
       ]);
     })
   );
 });
+
 self.addEventListener('fetch', event => {
   event.respondWith(
     caches.match(event.request).then(resp => resp || fetch(event.request))
