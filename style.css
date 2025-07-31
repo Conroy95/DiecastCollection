@@ -41,7 +41,7 @@ body {
   position: sticky;
   top: 0;
   z-index: 100;
-  flex-wrap: wrap; /* voor mobiel */
+  flex-wrap: wrap;
 }
 
 .logo {
@@ -85,27 +85,20 @@ body {
   margin: 2.5rem 0 6rem 0;
   display: grid;
   gap: 2rem;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
 }
 
-/* Meer kolommen op desktop fullscreen */
-@media (min-width: 1200px) {
-  .grid {
-    grid-template-columns: repeat(5, 1fr);
-    gap: 1.5rem;
-  }
-}
-
-/* Card */
+/* Vierkante kaarten */
 .card {
-  background: linear-gradient(145deg, #2c2c2c, #1f1f1f);
-  border-radius: 15px;
+  position: relative;
+  width: 100%;
+  padding-top: 100%; /* hoogte = breedte */
   overflow: hidden;
+  border-radius: 15px;
+  background: linear-gradient(145deg, #2c2c2c, #1f1f1f);
   box-shadow:
     0 0 8px #ff0000aa,
     inset 0 0 12px #ff000088;
-  display: flex;
-  flex-direction: column;
   cursor: pointer;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   color: #eee;
@@ -119,51 +112,54 @@ body {
     inset 0 0 20px #ff0000cc;
 }
 
+/* Afbeelding absoluut gepositioneerd */
 .card img {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
   width: 100%;
-  height: 180px;
+  height: 100%;
   object-fit: cover;
-  border-bottom: 2px solid #ff0000;
+  border-radius: 15px;
+  filter: brightness(0.8);
   transition: filter 0.3s ease;
+  z-index: 1;
 }
 
 .card:hover img,
 .card:focus-within img {
-  filter: brightness(1.15);
+  filter: brightness(1);
 }
 
-/* Card content */
+/* Card content absoluut en bovenop afbeelding */
 .card-content {
-  padding: 1rem 1.2rem;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 1rem;
+  background: linear-gradient(transparent, rgba(0, 0, 0, 0.7));
+  color: #ff4d4d;
+  font-family: 'Orbitron', sans-serif;
+  text-shadow: 0 0 8px #000;
+  z-index: 2;
   display: flex;
   flex-direction: column;
-  flex-grow: 1;
+  justify-content: flex-end;
+  height: 45%;
+  border-radius: 0 0 15px 15px;
 }
 
 .card-content h2 {
-  font-family: 'Orbitron', sans-serif;
   font-weight: 700;
-  font-size: 1.4rem;
-  color: #ff4d4d;
-  margin-bottom: 0.3rem;
-  letter-spacing: 1px;
+  font-size: 1.3rem;
+  margin-bottom: 0.2rem;
   user-select: none;
 }
 
 .card-content p {
-  flex-grow: 1;
-  font-size: 1rem;
-  line-height: 1.3;
-  margin-bottom: 0.7rem;
-  color: #ccc;
-}
-
-.card-content .details {
   font-size: 0.9rem;
-  font-weight: 600;
-  color: #aaa;
+  color: #eee;
   user-select: none;
-  letter-spacing: 0.5px;
 }
 
 /* Footer */
@@ -210,9 +206,6 @@ body {
   .card-content p {
     font-size: 0.9rem;
   }
-  .card-content .details {
-    font-size: 0.8rem;
-  }
 }
 
 /* Extra klein (mobiel portrait) */
@@ -221,22 +214,20 @@ body {
     font-size: 1rem;
     padding: 0.5rem 1rem;
   }
-  .card img {
-    height: 140px;
-  }
   .card-content h2 {
     font-size: 1.1rem;
   }
   .card-content p {
     font-size: 0.85rem;
   }
-  .card-content .details {
-    font-size: 0.75rem;
-  }
 }
 
 /* Grotere schermen (desktop & grotere tablets) */
 @media (min-width: 1200px) {
+  .grid {
+    grid-template-columns: repeat(5, 1fr);
+    gap: 1.5rem;
+  }
   .card-content h2 {
     font-size: 1.6rem;
   }
