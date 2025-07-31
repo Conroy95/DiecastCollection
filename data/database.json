@@ -4,7 +4,7 @@
     "Model":"BT46B",
     "Jaar":1978,
     "Schaal":"1:43",
-    "Coureur":"Niki Lauda",
+    "Coureur\/Team":"Niki Lauda",
     "Afbeelding":"1.png",
     "Opmerking":"1978 Sweden Grand Prix",
     "Categorie":"F1"
@@ -14,7 +14,7 @@
     "Model":"F2002",
     "Jaar":2002,
     "Schaal":"1:43",
-    "Coureur":"Michael Schumacher",
+    "Coureur\/Team":"Michael Schumacher",
     "Afbeelding":"10.png",
     "Opmerking":"-",
     "Categorie":"F1"
@@ -24,7 +24,7 @@
     "Model":"MP 4\/4",
     "Jaar":1988,
     "Schaal":"1:43",
-    "Coureur":"Ayrton Senna",
+    "Coureur\/Team":"Ayrton Senna",
     "Afbeelding":"11.png",
     "Opmerking":"-",
     "Categorie":"F1"
@@ -34,7 +34,7 @@
     "Model":"GP 01",
     "Jaar":2009,
     "Schaal":"1:43",
-    "Coureur":"Jenson Button",
+    "Coureur\/Team":"Jenson Button",
     "Afbeelding":"2.png",
     "Opmerking":"-",
     "Categorie":"F1"
@@ -44,7 +44,7 @@
     "Model":"312 T2",
     "Jaar":1977,
     "Schaal":"1:43",
-    "Coureur":"Niki Lauda",
+    "Coureur\/Team":"Niki Lauda",
     "Afbeelding":"3.png",
     "Opmerking":"1977 Brazilian Grand Prix",
     "Categorie":"F1"
@@ -54,7 +54,7 @@
     "Model":"W05 Hybrid",
     "Jaar":2014,
     "Schaal":"1:43",
-    "Coureur":"Lewis Hamilton",
+    "Coureur\/Team":"Lewis Hamilton",
     "Afbeelding":"4.png",
     "Opmerking":"-",
     "Categorie":"F1"
@@ -64,7 +64,7 @@
     "Model":"FW14B",
     "Jaar":1992,
     "Schaal":"1:43",
-    "Coureur":"Nigel Mansell",
+    "Coureur\/Team":"Nigel Mansell",
     "Afbeelding":"5.png",
     "Opmerking":"-",
     "Categorie":"F1"
@@ -74,7 +74,7 @@
     "Model":"P34",
     "Jaar":1976,
     "Schaal":"1:43",
-    "Coureur":"Jody Scheckter",
+    "Coureur\/Team":"Jody Scheckter",
     "Afbeelding":"6.png",
     "Opmerking":"-",
     "Categorie":"F1"
@@ -84,7 +84,7 @@
     "Model":"B194",
     "Jaar":1994,
     "Schaal":"1:43",
-    "Coureur":"Michael Schumacher",
+    "Coureur\/Team":"Michael Schumacher",
     "Afbeelding":"7.png",
     "Opmerking":"-",
     "Categorie":"F1"
@@ -94,7 +94,7 @@
     "Model":191,
     "Jaar":1991,
     "Schaal":"1:43",
-    "Coureur":"Michael Schumacher",
+    "Coureur\/Team":"Michael Schumacher",
     "Afbeelding":"8.png",
     "Opmerking":"1991 Belgian Grand Prix",
     "Categorie":"F1"
@@ -104,7 +104,7 @@
     "Model":"TG184",
     "Jaar":1984,
     "Schaal":"1:43",
-    "Coureur":"Ayrton Senna",
+    "Coureur\/Team":"Ayrton Senna",
     "Afbeelding":"9.png",
     "Opmerking":"-",
     "Categorie":"F1"
@@ -114,7 +114,7 @@
     "Model":"RedBull Racing",
     "Jaar":2020,
     "Schaal":"1:2",
-    "Coureur":"Max Verstappen",
+    "Coureur\/Team":"Max Verstappen",
     "Afbeelding":"25.png",
     "Opmerking":"Austrian GP",
     "Categorie":"Helmet"
@@ -124,7 +124,7 @@
     "Model":"RedBull Racing",
     "Jaar":2019,
     "Schaal":"1:2",
-    "Coureur":"Max Verstappen",
+    "Coureur\/Team":"Max Verstappen",
     "Afbeelding":"27.png",
     "Opmerking":"Belgian GP",
     "Categorie":"Helmet"
@@ -134,7 +134,7 @@
     "Model":"RedBull Racing",
     "Jaar":2019,
     "Schaal":"1:2",
-    "Coureur":"Max Verstappen",
+    "Coureur\/Team":"Max Verstappen",
     "Afbeelding":"31.png",
     "Opmerking":"Jaar 2019",
     "Categorie":"Helmet"
@@ -144,7 +144,7 @@
     "Model":"RedBull Racing",
     "Jaar":2020,
     "Schaal":"1:2",
-    "Coureur":"Max Verstappen",
+    "Coureur\/Team":"Max Verstappen",
     "Afbeelding":"32.png",
     "Opmerking":"Jaar 2020",
     "Categorie":"Helmet"
@@ -154,7 +154,7 @@
     "Model":"RedBull Racing",
     "Jaar":2022,
     "Schaal":"1:2",
-    "Coureur":"Max Verstappen",
+    "Coureur\/Team":"Max Verstappen",
     "Afbeelding":"35.png",
     "Opmerking":"Miami GP",
     "Categorie":"Helmet"
@@ -164,7 +164,7 @@
     "Model":"RedBull Racing",
     "Jaar":2022,
     "Schaal":"1:2",
-    "Coureur":"Max Verstappen",
+    "Coureur\/Team":"Max Verstappen",
     "Afbeelding":"76.png",
     "Opmerking":"Austria GP",
     "Categorie":"Helmet"
@@ -174,7 +174,7 @@
     "Model":"Dallara P217",
     "Jaar":2018,
     "Schaal":"1:43",
-    "Coureur":"Racing Team Nederland - No.29",
+    "Coureur\/Team":"Racing Team Nederland - No.29",
     "Afbeelding":"14.png",
     "Opmerking":"Boxed - S7015",
     "Categorie":"Le Mans"
@@ -184,7 +184,7 @@
     "Model":"Dallara P217",
     "Jaar":2018,
     "Schaal":"1:43",
-    "Coureur":"Cetilar Villorba Corse - No.47",
+    "Coureur\/Team":"Cetilar Villorba Corse - No.47",
     "Afbeelding":"15.png",
     "Opmerking":"Boxed - S7027",
     "Categorie":"Le Mans"
@@ -194,7 +194,7 @@
     "Model":"Oreca 07 - Gibson",
     "Jaar":2017,
     "Schaal":"1:43",
-    "Coureur":"Jackie Chan DC Racing - No.37",
+    "Coureur\/Team":"Jackie Chan DC Racing - No.37",
     "Afbeelding":"16.png",
     "Opmerking":"Boxed - S5823",
     "Categorie":"Le Mans"
@@ -204,7 +204,7 @@
     "Model":"Porsche Panamera Sport Turismo",
     "Jaar":2018,
     "Schaal":"1:43",
-    "Coureur":"Race Control",
+    "Coureur\/Team":"Race Control",
     "Afbeelding":"17.png",
     "Opmerking":"Race Control - Boxed - S7048",
     "Categorie":"Le Mans"
@@ -214,7 +214,7 @@
     "Model":"Rebellion R13 - Gibson",
     "Jaar":2020,
     "Schaal":"1:43",
-    "Coureur":"Rebellion Racing - No.01",
+    "Coureur\/Team":"Rebellion Racing - No.01",
     "Afbeelding":"18.png",
     "Opmerking":"Boxed - S7955",
     "Categorie":"Le Mans"
@@ -224,7 +224,7 @@
     "Model":"Porsche Macan GTS",
     "Jaar":2018,
     "Schaal":"1:43",
-    "Coureur":"Track Car",
+    "Coureur\/Team":"Track Car",
     "Afbeelding":"19.png",
     "Opmerking":"Track Car - Boxed - S7047",
     "Categorie":"Le Mans"
@@ -234,7 +234,7 @@
     "Model":"Oreca 07 - Gibson",
     "Jaar":2020,
     "Schaal":"1:43",
-    "Coureur":"Racing Team Nederland - No.29",
+    "Coureur\/Team":"Racing Team Nederland - No.29",
     "Afbeelding":"20.png",
     "Opmerking":"Boxed - S7969",
     "Categorie":"Le Mans"
@@ -244,7 +244,7 @@
     "Model":"Oreca 07 - Gibson",
     "Jaar":2017,
     "Schaal":"1:43",
-    "Coureur":"Vaillante Rebellion",
+    "Coureur\/Team":"Vaillante Rebellion",
     "Afbeelding":"98.png",
     "Opmerking":"Boxed MV09",
     "Categorie":"Le Mans"
