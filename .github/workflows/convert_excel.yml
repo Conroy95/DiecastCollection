@@ -3,7 +3,7 @@ name: Convert Excel to JSON
 on:
   push:
     paths:
-      - 'data/database.xlsx'
+      - data/database.xlsx
 
 jobs:
   convert:
@@ -16,18 +16,19 @@ jobs:
       - name: Setup Python
         uses: actions/setup-python@v5
         with:
-          python-version: 3.x
+          python-version: '3.x'
 
       - name: Install dependencies
-        run: |
-          pip install pandas openpyxl
+        run: pip install pandas openpyxl
 
-      - name: Convert Excel to JSON
+      - name: Write Python script to file
         run: |
-          import pandas as pd
-          df = pd.read_excel('data/database.xlsx')
-          df.to_json('data/database.json', orient='records', force_ascii=False, indent=2)
-        shell: python
+          echo "import pandas as pd" > convert.py
+          echo "df = pd.read_excel('data/database.xlsx')" >> convert.py
+          echo "df.to_json('data/database.json', orient='records', force_ascii=False, indent=2)" >> convert.py
+
+      - name: Run conversion script
+        run: python convert.py
 
       - name: Commit and push JSON
         run: |
