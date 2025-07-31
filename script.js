@@ -10,7 +10,7 @@ async function fetchData() {
     cars = await res.json();
     displayCars(cars);
   } catch (error) {
-    grid.innerHTML = `<p>Fout bij laden data: ${error.message}</p>`;
+    grid.innerHTML = `<p class="error">Fout bij laden data: ${error.message}</p>`;
     console.error(error);
   }
 }
