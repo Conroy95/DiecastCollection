@@ -3,6 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#222222" />
+  <meta name="description" content="Overzicht van mijn diecast modelauto collectie." />
   <title>Mijn Diecast Collectie</title>
   <link rel="stylesheet" href="style.css" />
   <link rel="manifest" href="manifest.json" />
@@ -13,8 +15,8 @@
   <header>
     <h1>Mijn Diecast Collectie</h1>
   </header>
-  <main id="collection"></main>
-  <script src="app.js"></script>
-  <script src="script.js"></script>
+  <main id="collection" aria-live="polite"></main>
+  <script src="app.js" defer></script>
+  <script src="script.js" defer></script>
 </body>
 </html>

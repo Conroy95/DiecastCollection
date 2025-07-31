@@ -1,43 +1,11 @@
-name: Convert Excel to JSON
-
-on:
-  push:
-    paths:
-      - 'data/database.xlsx'
-
-jobs:
-  convert:
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Checkout repo
-        uses: actions/checkout@v3
-
-      - name: Setup Python
-        uses: actions/setup-python@v4
-        with:
-          python-version: 3.11
-
-      - name: Install dependencies
-        run: |
-          pip install pandas openpyxl
-
       - name: Convert Excel to JSON
         run: |
           mkdir -p data
           python3 <<EOF
 import pandas as pd
-df = pd.read_excel("data/database.xlsx")
-df.to_json("data/collection.json", orient="records", force_ascii=False, indent=2)
+try:
+    df = pd.read_excel("data/database.xlsx")
+    df.to_json("data/collection.json", orient="records", force_ascii=False, indent=2)
+except Exception as e:
+    print(f"Fout bij converteren: {e}")
 EOF
-          cat data/collection.json
-
-      - name: Commit & Push JSON
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          git config --global user.name "github-actions"
-          git config --global user.email "actions@github.com"
-          git add data/collection.json
-          git commit -m "Auto: collection.json bijgewerkt" || echo "Geen wijzigingen"
-          git push
