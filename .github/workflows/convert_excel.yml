@@ -8,6 +8,7 @@ on:
 jobs:
   convert:
     runs-on: ubuntu-latest
+
     steps:
       - uses: actions/checkout@v3
 
@@ -22,11 +23,7 @@ jobs:
 
       - name: Convert Excel to JSON
         run: |
-          python <<EOF
-import pandas as pd
-df = pd.read_excel('data/database.xlsx')
-df.to_json('data/database.json', orient='records', force_ascii=False, indent=2)
-EOF
+          python -c "import pandas as pd; df = pd.read_excel('data/database.xlsx'); df.to_json('data/database.json', orient='records', force_ascii=False, indent=2)"
 
       - name: Commit JSON
         run: |
