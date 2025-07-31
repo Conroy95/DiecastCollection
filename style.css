@@ -58,6 +58,12 @@ body {
   flex: 1 1 200px;
 }
 
+.logo:hover, .logo:active, {
+	color: #fff;
+	text-decoration: non;
+	
+}
+
 /* Search input */
 #search {
   flex: 1 1 300px;
