@@ -1,10 +1,5 @@
-(async () => {
-  if ('serviceWorker' in navigator) {
-    try {
-      await navigator.serviceWorker.register('sw.js');
-      console.info('Service Worker geregistreerd');
-    } catch (err) {
-      console.error('Fout bij registreren Service Worker:', err);
-    }
-  }
-})();
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('sw.js')
+    .then(reg => console.log('SW geregistreerd', reg))
+    .catch(err => console.error('SW fout', err));
+}

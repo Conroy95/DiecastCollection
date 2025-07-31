@@ -1,35 +1,35 @@
-async function fetchData() {
-  try {
-    const response = await fetch('data/collection.json');
-    if (!response.ok) throw new Error('Bestand niet gevonden');
-    const data = await response.json();
-    renderCollection(data);
-  } catch (error) {
-    document.getElementById('collection').innerHTML = `<p>Fout bij laden data: ${error.message}</p>`;
-  }
-}
+const grid = document.getElementById('gridContainer');
+const searchInput = document.getElementById('searchInput');
 
-function renderCollection(collection) {
-  const container = document.getElementById('collection');
-  container.innerHTML = '';
+fetch('data/database.json')
+  .then(res => res.json())
+  .then(data => {
+    renderCards(data);
 
-  if (!collection.length) {
-    container.innerHTML = '<p>Geen items gevonden.</p>';
-    return;
-  }
+    searchInput.addEventListener('input', () => {
+      const filtered = data.filter(item =>
+        item.Merk.toLowerCase().includes(searchInput.value.toLowerCase()) ||
+        item.Coureur.toLowerCase().includes(searchInput.value.toLowerCase())
+      );
+      renderCards(filtered);
+    });
+  });
 
-  collection.forEach(item => {
+function renderCards(items) {
+  grid.innerHTML = '';
+  items.forEach(item => {
     const card = document.createElement('div');
     card.className = 'card';
     card.innerHTML = `
-      <img src="img/${item.foto}" alt="Diecast ${item.merk} ${item.model}" onerror="this.src='img/fallback.jpg'" />
+      <img src="img/${item.Afbeelding || 'placeholder.jpg'}" alt="${item.Merk}" />
       <div class="card-content">
-        <h3>${item.merk} ${item.model}</h3>
-        <p>Schaal: ${item.schaal}</p>
-        <p>Bouwjaar: ${item.jaar}</p>
-      </div>`;
-    container.appendChild(card);
+        <h3>${item.Merk} ${item.Model}</h3>
+        <p>${item.Jaar} - ${item.Schaal}</p>
+        <p><strong>Coureur:</strong> ${item.Coureur}</p>
+        <p><em>${item.Opmerking}</em></p>
+        <span class="categorie">${item.Categorie}</span>
+      </div>
+    `;
+    grid.appendChild(card);
   });
 }
-
-fetchData();
