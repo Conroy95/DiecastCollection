@@ -7,7 +7,7 @@
     "Coureur":"Niki Lauda",
     "Afbeelding":"1.jpg",
     "Opmerking":"1978 Sweden Grand Prix",
-    "Categorie":"Racecar"
+    "Categorie":"F1"
   },
   {
     "Merk":"Brawn",
@@ -17,7 +17,7 @@
     "Coureur":"Jenson Button",
     "Afbeelding":"2.jpg",
     "Opmerking":"-",
-    "Categorie":"Racecar"
+    "Categorie":"F1"
   },
   {
     "Merk":"Ferrari",
@@ -27,7 +27,7 @@
     "Coureur":"Niki Lauda",
     "Afbeelding":"3.jpg",
     "Opmerking":"1977 Brazilian Grand Prix",
-    "Categorie":"Racecar"
+    "Categorie":"F1"
   },
   {
     "Merk":"Mercedes Benz",
@@ -37,7 +37,7 @@
     "Coureur":"Lewis Hamilton",
     "Afbeelding":"4.jpg",
     "Opmerking":"-",
-    "Categorie":"Racecar"
+    "Categorie":"F1"
   },
   {
     "Merk":"Williams",
@@ -47,7 +47,7 @@
     "Coureur":"Nigel Mansell",
     "Afbeelding":"5.jpg",
     "Opmerking":"-",
-    "Categorie":"Racecar"
+    "Categorie":"F1"
   },
   {
     "Merk":"Tyrrell",
@@ -57,7 +57,7 @@
     "Coureur":"Jody Scheckter",
     "Afbeelding":"6.jpg",
     "Opmerking":"-",
-    "Categorie":"Racecar"
+    "Categorie":"F1"
   },
   {
     "Merk":"Benetton",
@@ -67,7 +67,7 @@
     "Coureur":"Michael Schumacher",
     "Afbeelding":"7.jpg",
     "Opmerking":"-",
-    "Categorie":"Racecar"
+    "Categorie":"F1"
   },
   {
     "Merk":"Jordan",
@@ -77,7 +77,7 @@
     "Coureur":"Michael Schumacher",
     "Afbeelding":"8.jpg",
     "Opmerking":"1991 Belgian Grand Prix",
-    "Categorie":"Racecar"
+    "Categorie":"F1"
   },
   {
     "Merk":"Toleman",
@@ -87,7 +87,7 @@
     "Coureur":"Ayrton Senna",
     "Afbeelding":"9.jpg",
     "Opmerking":"-",
-    "Categorie":"Racecar"
+    "Categorie":"F1"
   },
   {
     "Merk":"Ferrari",
@@ -97,7 +97,7 @@
     "Coureur":"Michael Schumacher",
     "Afbeelding":"10.jpg",
     "Opmerking":"-",
-    "Categorie":"Racecar"
+    "Categorie":"F1"
   },
   {
     "Merk":"McLaren",
@@ -107,7 +107,7 @@
     "Coureur":"Ayrton Senna",
     "Afbeelding":"11.jpg",
     "Opmerking":"-",
-    "Categorie":"Racecar"
+    "Categorie":"F1"
   },
   {
     "Merk":"Schuberth",
@@ -168,5 +168,15 @@
     "Afbeelding":"76.jpg",
     "Opmerking":"Austria GP",
     "Categorie":"Helmet"
+  },
+  {
+    "Merk":"Spark Models",
+    "Model":"Dallara P217",
+    "Jaar":2018,
+    "Schaal":"1:43",
+    "Coureur":"Racing Team Nederland - No.29",
+    "Afbeelding":"14.jpg",
+    "Opmerking":"Boxed - S7015",
+    "Categorie":"Le Mans"
   }
 ]
