@@ -30,6 +30,7 @@ function displayCars(list) {
         : 'img/placeholder.png';
 
       const opmerking = car.Opmerking && car.Opmerking !== '-' ? car.Opmerking : '';
+      const fabrikant = car.Fabrikant && car.Fabrikant !== '-' ? `<p><strong>Fabrikant:</strong> ${car.Fabrikant}</p>` : '';
       const categorie = car.Categorie || '';
       const coureur = car["Coureur/Team"] || car.Coureur || '-';
 
@@ -39,6 +40,7 @@ function displayCars(list) {
         <div class="card-content">
           <h2>${car.Merk} ${car.Model}</h2>
           <p>${opmerking}</p>
+          <p>${fabrikant}</p>
           <div class="details">Jaar: ${car.Jaar || '-'} | Schaal: ${car.Schaal || '-'} | Coureur/Team: ${coureur}</div>
           <div class="details">Categorie: ${categorie}</div>
         </div>
@@ -61,6 +63,7 @@ searchInput.addEventListener('input', (e) => {
       (car.Model && car.Model.toString().toLowerCase().includes(term)) ||
       (car.Categorie && car.Categorie.toLowerCase().includes(term)) ||
       (coureur && coureur.toLowerCase().includes(term)) ||
+      (car.Fabrikant && car.Fabrikant.toLowerCase().includes(term)) ||
       (car.Opmerking && car.Opmerking.toLowerCase().includes(term))
     );
   });
