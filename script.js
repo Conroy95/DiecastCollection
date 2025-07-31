@@ -31,6 +31,7 @@ function displayCars(list) {
 
       const opmerking = car.Opmerking && car.Opmerking !== '-' ? car.Opmerking : '';
       const categorie = car.Categorie || '';
+      const coureur = car["Coureur/Team"] || car.Coureur || '-';
 
       return `
       <article class="card" tabindex="0" aria-label="${car.Merk} ${car.Model}">
@@ -38,7 +39,7 @@ function displayCars(list) {
         <div class="card-content">
           <h2>${car.Merk} ${car.Model}</h2>
           <p>${opmerking}</p>
-          <div class="details">Jaar: ${car.Jaar || '-'} | Schaal: ${car.Schaal || '-'} | Coureur: ${car.Coureur || '-'}</div>
+          <div class="details">Jaar: ${car.Jaar || '-'} | Schaal: ${car.Schaal || '-'} | Coureur: ${coureur}</div>
           <div class="details">Categorie: ${categorie}</div>
         </div>
       </article>`;
@@ -54,11 +55,12 @@ searchInput.addEventListener('input', (e) => {
   }
 
   const filtered = cars.filter((car) => {
+    const coureur = car["Coureur/Team"] || car.Coureur || '';
     return (
       (car.Merk && car.Merk.toLowerCase().includes(term)) ||
       (car.Model && car.Model.toString().toLowerCase().includes(term)) ||
       (car.Categorie && car.Categorie.toLowerCase().includes(term)) ||
-      (car.Coureur && car.Coureur.toLowerCase().includes(term)) ||
+      (coureur && coureur.toLowerCase().includes(term)) ||
       (car.Opmerking && car.Opmerking.toLowerCase().includes(term))
     );
   });
