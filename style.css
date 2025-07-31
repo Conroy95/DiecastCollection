@@ -1,108 +1,234 @@
-/* Algemene layout */
-body {
-  margin: 0;
-  font-family: 'Orbitron', sans-serif;
-  background-color: #0b0b0b;
-  color: #ffffff;
-}
-
-/* Navigatiebalk */
-.navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background-color: #d32f2f;
-  padding: 1rem 2rem;
-  width: 100%;
+/* Reset & base */
+* {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
-.logo {
-  font-size: 1.5rem;
-  font-weight: 900;
-  color: #fff;
-}
-
-.navbar input[type="text"] {
-  padding: 0.5rem;
-  border: none;
-  border-radius: 4px;
-  width: 100%;
-  max-width: 300px;
-  font-size: 1rem;
+body {
+  font-family: 'Orbitron', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #1a1a1a 0%, #121212 100%);
+  color: #eee;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 /* Container */
 .container {
-  max-width: 1600px;
+  width: 90%;
+  max-width: 1200px;
   margin: 0 auto;
-  padding: 2rem;
-  box-sizing: border-box;
 }
 
-/* Grid */
+/* Voor desktop: fullscreen breedte container */
+@media (min-width: 1200px) {
+  .container {
+    width: 100%;
+    max-width: none;
+    margin: 0;
+  }
+}
+
+/* Navbar */
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 2rem;
+  background: #d32f2f;
+  box-shadow: 0 0 15px #d32f2fcc;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  flex-wrap: wrap;
+}
+
+.logo {
+  font-family: 'Orbitron', sans-serif;
+  font-weight: 900;
+  font-size: 1.9rem;
+  letter-spacing: 2px;
+  user-select: none;
+  color: #fff;
+  text-shadow: 0 0 8px #fff8;
+  flex: 1 1 200px;
+}
+
+/* Search input */
+#search {
+  flex: 1 1 300px;
+  max-width: 500px;
+  padding: 0.6rem 1.2rem;
+  border-radius: 30px;
+  border: none;
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: #222;
+  outline: none;
+  transition: box-shadow 0.3s ease;
+  box-shadow: inset 0 0 6px #0003;
+  min-width: 150px;
+  margin-left: auto;
+}
+
+#search::placeholder {
+  color: #999;
+}
+
+#search:focus {
+  box-shadow: 0 0 15px #ff4d4d;
+}
+
+/* Grid container */
 .grid {
+  margin: 2.5rem 0 6rem 0;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-  gap: 1.5rem;
+  gap: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
 }
 
-/* Grid item */
-.grid-item {
-  background-color: #1a1a1a;
-  border: 2px solid #292929;
-  border-radius: 0.5rem;
+/* Vierkante kaarten */
+.card {
+  position: relative;
+  width: 100%;
+  padding-top: 100%; /* hoogte = breedte */
+  overflow: hidden;
+  border-radius: 15px;
+  background: linear-gradient(145deg, #2c2c2c, #1f1f1f);
+  box-shadow:
+    0 0 8px #ff0000aa,
+    inset 0 0 12px #ff000088;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  color: #eee;
+}
+
+.card:hover,
+.card:focus-within {
+  transform: scale(1.05);
+  box-shadow:
+    0 0 18px #ff0000dd,
+    inset 0 0 20px #ff0000cc;
+}
+
+/* Afbeelding absoluut gepositioneerd */
+.card img {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 15px;
+  filter: brightness(0.8);
+  transition: filter 0.3s ease;
+  z-index: 1;
+}
+
+.card:hover img,
+.card:focus-within img {
+  filter: brightness(1);
+}
+
+/* Card content absoluut en bovenop afbeelding */
+.card-content {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
   padding: 1rem;
-  aspect-ratio: 1 / 1;
+  background: linear-gradient(transparent, rgba(0, 0, 0, 0.7));
+  color: #ff4d4d;
+  font-family: 'Orbitron', sans-serif;
+  text-shadow: 0 0 8px #000;
+  z-index: 2;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  text-align: center;
+  justify-content: flex-end;
+  height: 45%;
+  border-radius: 0 0 15px 15px;
 }
 
-.grid-item img {
-  width: 100%;
-  height: auto;
-  max-height: 60%;
-  object-fit: contain;
+.card-content h2 {
+  font-weight: 700;
+  font-size: 1.3rem;
+  margin-bottom: 0.2rem;
+  user-select: none;
 }
 
-.grid-item h3 {
-  margin: 0.5rem 0 0.2rem;
-  font-size: 1.1rem;
-}
-
-.grid-item p {
-  margin: 0.2rem 0;
+.card-content p {
   font-size: 0.9rem;
+  color: #eee;
+  user-select: none;
 }
 
 /* Footer */
 .footer {
-  background-color: #111;
-  color: #ccc;
-  text-align: center;
-  padding: 1rem;
+  background: #0f0f0f;
+  padding: 1rem 0;
+  color: #777;
+  font-size: 0.9rem;
+  user-select: none;
+  box-shadow: inset 0 1px 3px #ff0000bb;
   position: fixed;
   bottom: 0;
   width: 100%;
-  box-sizing: border-box;
+  z-index: 50;
 }
 
-/* Mobiele optimalisatie */
+.footer .container {
+  display: flex;
+  justify-content: center;
+}
+
+/* Responsive */
+
+/* Kleinere schermen - mobiel & kleine tablets */
 @media (max-width: 768px) {
   .navbar {
-    flex-direction: column;
-    align-items: flex-start;
+    justify-content: center;
+    padding: 1rem;
+  }
+  .logo {
+    flex: 1 1 100%;
+    text-align: center;
+    margin-bottom: 0.5rem;
+  }
+  #search {
+    flex: 1 1 100%;
+    max-width: 100%;
+    margin-left: 0;
   }
 
-  .navbar input[type="text"] {
-    width: 100%;
-    margin-top: 0.5rem;
+  .card-content h2 {
+    font-size: 1.2rem;
   }
+  .card-content p {
+    font-size: 0.9rem;
+  }
+}
 
+/* Extra klein (mobiel portrait) */
+@media (max-width: 400px) {
+  #search {
+    font-size: 1rem;
+    padding: 0.5rem 1rem;
+  }
+  .card-content h2 {
+    font-size: 1.1rem;
+  }
+  .card-content p {
+    font-size: 0.85rem;
+  }
+}
+
+/* Grotere schermen (desktop & grotere tablets) */
+@media (min-width: 1200px) {
   .grid {
-    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-    gap: 1rem;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 1.5rem;
+  }
+  .card-content h2 {
+    font-size: 1.6rem;
   }
 }
