@@ -39,7 +39,7 @@ function displayCars(list) {
         <div class="card-content">
           <h2>${car.Merk} ${car.Model}</h2>
           <p>${opmerking}</p>
-          <div class="details">Jaar: ${car.Jaar || '-'} | Schaal: ${car.Schaal || '-'} | Coureur: ${coureur}</div>
+          <div class="details">Jaar: ${car.Jaar || '-'} | Schaal: ${car.Schaal || '-'} | Coureur/Team: ${coureur}</div>
           <div class="details">Categorie: ${categorie}</div>
         </div>
       </article>`;
