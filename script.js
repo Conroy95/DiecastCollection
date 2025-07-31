@@ -6,10 +6,11 @@ let cars = [];
 async function fetchData() {
   try {
     const res = await fetch('data/database.json');
+    if (!res.ok) throw new Error('Kon database.json niet laden');
     cars = await res.json();
     displayCars(cars);
   } catch (error) {
-    grid.innerHTML = `<p>Fout bij laden data.</p>`;
+    grid.innerHTML = `<p>Fout bij laden data: ${error.message}</p>`;
     console.error(error);
   }
 }
@@ -22,18 +23,18 @@ function displayCars(list) {
 
   grid.innerHTML = list
     .map((car) => {
-      // Zorg dat afbeelding klopt
       const imgSrc = car.Afbeelding
-        ? car.Afbeelding.startsWith('img/') ? car.Afbeelding : `img/${car.Afbeelding}`
+        ? car.Afbeelding.startsWith('img/')
+          ? car.Afbeelding
+          : `img/${car.Afbeelding}`
         : 'img/placeholder.jpg';
 
-      // Zet lege velden op lege string
-      const opmerking = car.Opmerking || '';
+      const opmerking = car.Opmerking && car.Opmerking !== '-' ? car.Opmerking : '';
       const categorie = car.Categorie || '';
 
       return `
       <article class="card" tabindex="0" aria-label="${car.Merk} ${car.Model}">
-        <img src="${imgSrc}" alt="${car.Merk} ${car.Model}" />
+        <img src="${imgSrc}" alt="${car.Merk} ${car.Model}" loading="lazy" />
         <div class="card-content">
           <h2>${car.Merk} ${car.Model}</h2>
           <p>${opmerking}</p>
@@ -51,14 +52,17 @@ searchInput.addEventListener('input', (e) => {
     displayCars(cars);
     return;
   }
+
   const filtered = cars.filter((car) => {
     return (
       (car.Merk && car.Merk.toLowerCase().includes(term)) ||
-      (car.Model && car.Model.toLowerCase().includes(term)) ||
+      (car.Model && car.Model.toString().toLowerCase().includes(term)) ||
       (car.Categorie && car.Categorie.toLowerCase().includes(term)) ||
-      (car.Coureur && car.Coureur.toLowerCase().includes(term))
+      (car.Coureur && car.Coureur.toLowerCase().includes(term)) ||
+      (car.Opmerking && car.Opmerking.toLowerCase().includes(term))
     );
   });
+
   displayCars(filtered);
 });
 

@@ -8,22 +8,24 @@
 </head>
 <body>
   <header>
-    <nav class="navbar">
-      <div class="container">
-        <h1 class="logo">AutoCollectie</h1>
-        <input type="search" id="search" placeholder="Zoek op merk, model..." aria-label="Zoeken" />
-      </div>
+    <nav class="navbar container">
+      <h1 class="logo">AutoCollectie</h1>
+      <input
+        type="search"
+        id="search"
+        placeholder="Zoek merk, model, categorie..."
+        aria-label="Zoeken"
+        autocomplete="off"
+      />
     </nav>
   </header>
 
   <main class="container">
-    <section id="grid" class="grid"></section>
+    <section id="grid" class="grid" aria-live="polite" aria-atomic="true"></section>
   </main>
 
-  <footer>
-    <div class="container">
-      <p>© 2025 AutoCollectie - Alle rechten voorbehouden</p>
-    </div>
+  <footer class="footer container">
+    <p>© 2025 AutoCollectie - Alle rechten voorbehouden</p>
   </footer>
 
   <script src="script.js"></script>
