@@ -2,40 +2,37 @@
 <html lang="nl">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Race Collectie</title>
-
-  <!-- Favicon en manifest -->
-  <link rel="apple-touch-icon" sizes="180x180" href="fav/apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="fav/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="fav/favicon-16x16.png">
-  <link rel="manifest" href="fav/site.webmanifest">
-  <link rel="shortcut icon" href="fav/favicon.ico">
-
-  <!-- Fonts & CSS -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
+  <!-- Favicons -->
+	<link rel="apple-touch-icon" sizes="180x180" href="fav/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="fav/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="fav/favicon-16x16.png">
+	<link rel="manifest" href="fav/site.webmanifest">
+	<link rel="shortcut icon" href="fav/favicon.ico">
 </head>
 <body>
-  <!-- Navbar -->
-  <nav class="navbar">
-    <div class="logo">Race Collectie</div>
-    <input type="text" id="search" placeholder="Zoek op merk, coureur, jaar..." />
-  </nav>
+  <header>
+    <nav class="navbar container">
+      <h1 class="logo">🏁 RaceCollectie</h1>
+      <input
+        type="search"
+        id="search"
+        placeholder="🔍 Zoek merk, model, coureur..."
+        aria-label="Zoek in collectie"
+        autocomplete="off"
+      />
+    </nav>
+  </header>
 
-  <!-- Hoofdcontainer -->
   <main class="container">
-    <div class="grid" id="card-grid">
-      <!-- Dynamische content wordt hier geladen via JS -->
-    </div>
+    <section id="grid" class="grid" aria-live="polite" aria-atomic="true"></section>
   </main>
 
-  <!-- Footer -->
   <footer class="footer">
     <div class="container">
-      &copy; 2025 Race Collectie — Alle rechten voorbehouden.
+      <p>© 2025 RaceCollectie - Alle rechten voorbehouden</p>
     </div>
   </footer>
 
