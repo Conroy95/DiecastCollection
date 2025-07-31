@@ -10,29 +10,27 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v3
+      - uses: actions/checkout@v3
 
       - name: Setup Python
         uses: actions/setup-python@v5
         with:
           python-version: '3.x'
 
-      - name: Install Python dependencies
+      - name: Install dependencies
         run: pip install pandas openpyxl
 
-      - name: Convert Excel to JSON
+      - name: Write and run python converter script
         run: |
-          python - <<EOF
-import pandas as pd
-df = pd.read_excel('data/database.xlsx')
-df.to_json('data/database.json', orient='records', force_ascii=False, indent=2)
-EOF
+          echo "import pandas as pd" > convert.py
+          echo "df = pd.read_excel('data/database.xlsx')" >> convert.py
+          echo "df.to_json('data/database.json', orient='records', force_ascii=False, indent=2)" >> convert.py
+          python convert.py
 
       - name: Commit and push JSON
         run: |
           git config user.name "github-actions"
           git config user.email "actions@github.com"
           git add data/database.json
-          git commit -m "Auto-converted Excel to JSON"
-          git push
+          git commit -m "Auto-converted Excel to JSON" || echo "Nothing to commit"
+          git push || echo "Nothing to push"
