@@ -21,12 +21,21 @@ body {
   margin: 0 auto;
 }
 
+/* Voor desktop: fullscreen breedte container */
+@media (min-width: 1200px) {
+  .container {
+    width: 100%;
+    max-width: none;
+    margin: 0;
+  }
+}
+
 /* Navbar */
 .navbar {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 1rem 0;
+  padding: 1rem 2rem;
   background: #d32f2f;
   box-shadow: 0 0 15px #d32f2fcc;
   position: sticky;
@@ -76,9 +85,15 @@ body {
   margin: 2.5rem 0 6rem 0;
   display: grid;
   gap: 2rem;
-
-  /* desktop 4 kolommen */
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+}
+
+/* Meer kolommen op desktop fullscreen */
+@media (min-width: 1200px) {
+  .grid {
+    grid-template-columns: repeat(5, 1fr);
+    gap: 1.5rem;
+  }
 }
 
 /* Card */
@@ -176,6 +191,7 @@ body {
 @media (max-width: 768px) {
   .navbar {
     justify-content: center;
+    padding: 1rem;
   }
   .logo {
     flex: 1 1 100%;
@@ -221,9 +237,6 @@ body {
 
 /* Grotere schermen (desktop & grotere tablets) */
 @media (min-width: 1200px) {
-  .grid {
-    grid-template-columns: repeat(4, 1fr);
-  }
   .card-content h2 {
     font-size: 1.6rem;
   }
