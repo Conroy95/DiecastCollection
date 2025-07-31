@@ -35,7 +35,7 @@ function displayCars(list) {
 
       return `
       <article class="card" tabindex="0" aria-label="${car.Merk} ${car.Model}">
-        <img src="${imgSrc}" alt="${car.Merk} ${car.Model}" loading="lazy" />
+        <img src="${imgSrc}" alt="${car.Merk} ${car.Model}" loading="lazy" onerror="this.onerror=null;this.src='img/placeholder.png';" />
         <div class="card-content">
           <h2>${car.Merk} ${car.Model}</h2>
           <p>${opmerking}</p>
