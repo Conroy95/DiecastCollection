@@ -21,28 +21,44 @@ function displayCars(list) {
   }
 
   grid.innerHTML = list
-    .map(
-      (car) => `
-    <article class="card" tabindex="0" aria-label="${car.Merk} ${car.Model}">
-      <img src="${car.Afbeelding || 'img/placeholder.jpg'}" alt="${car.Merk} ${car.Model}" />
-      <div class="card-content">
-        <h2>${car.Merk} ${car.Model}</h2>
-        <p>${car.Opmerking || ''}</p>
-        <div class="details">Jaar: ${car.Jaar} | Schaal: ${car.Schaal} | Coureur: ${car.Coureur}</div>
-      </div>
-    </article>`
-    )
+    .map((car) => {
+      // Zorg dat afbeelding klopt
+      const imgSrc = car.Afbeelding
+        ? car.Afbeelding.startsWith('img/') ? car.Afbeelding : `img/${car.Afbeelding}`
+        : 'img/placeholder.jpg';
+
+      // Zet lege velden op lege string
+      const opmerking = car.Opmerking || '';
+      const categorie = car.Categorie || '';
+
+      return `
+      <article class="card" tabindex="0" aria-label="${car.Merk} ${car.Model}">
+        <img src="${imgSrc}" alt="${car.Merk} ${car.Model}" />
+        <div class="card-content">
+          <h2>${car.Merk} ${car.Model}</h2>
+          <p>${opmerking}</p>
+          <div class="details">Jaar: ${car.Jaar || '-'} | Schaal: ${car.Schaal || '-'} | Coureur: ${car.Coureur || '-'}</div>
+          <div class="details">Categorie: ${categorie}</div>
+        </div>
+      </article>`;
+    })
     .join('');
 }
 
 searchInput.addEventListener('input', (e) => {
-  const term = e.target.value.toLowerCase();
-  const filtered = cars.filter(
-    (car) =>
-      car.Merk.toLowerCase().includes(term) ||
-      car.Model.toLowerCase().includes(term) ||
-      (car.Categorie && car.Categorie.toLowerCase().includes(term))
-  );
+  const term = e.target.value.trim().toLowerCase();
+  if (!term) {
+    displayCars(cars);
+    return;
+  }
+  const filtered = cars.filter((car) => {
+    return (
+      (car.Merk && car.Merk.toLowerCase().includes(term)) ||
+      (car.Model && car.Model.toLowerCase().includes(term)) ||
+      (car.Categorie && car.Categorie.toLowerCase().includes(term)) ||
+      (car.Coureur && car.Coureur.toLowerCase().includes(term))
+    );
+  });
   displayCars(filtered);
 });
 
