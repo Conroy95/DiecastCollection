@@ -1,35 +1,49 @@
-const grid = document.getElementById('gridContainer');
-const searchInput = document.getElementById('searchInput');
+const grid = document.getElementById('grid');
+const searchInput = document.getElementById('search');
 
-fetch('data/database.json')
-  .then(res => res.json())
-  .then(data => {
-    renderCards(data);
+let cars = [];
 
-    searchInput.addEventListener('input', () => {
-      const filtered = data.filter(item =>
-        item.Merk.toLowerCase().includes(searchInput.value.toLowerCase()) ||
-        item.Coureur.toLowerCase().includes(searchInput.value.toLowerCase())
-      );
-      renderCards(filtered);
-    });
-  });
-
-function renderCards(items) {
-  grid.innerHTML = '';
-  items.forEach(item => {
-    const card = document.createElement('div');
-    card.className = 'card';
-    card.innerHTML = `
-      <img src="img/${item.Afbeelding || 'placeholder.jpg'}" alt="${item.Merk}" />
-      <div class="card-content">
-        <h3>${item.Merk} ${item.Model}</h3>
-        <p>${item.Jaar} - ${item.Schaal}</p>
-        <p><strong>Coureur:</strong> ${item.Coureur}</p>
-        <p><em>${item.Opmerking}</em></p>
-        <span class="categorie">${item.Categorie}</span>
-      </div>
-    `;
-    grid.appendChild(card);
-  });
+async function fetchData() {
+  try {
+    const res = await fetch('data/database.json');
+    cars = await res.json();
+    displayCars(cars);
+  } catch (error) {
+    grid.innerHTML = `<p>Fout bij laden data.</p>`;
+    console.error(error);
+  }
 }
+
+function displayCars(list) {
+  if (!list.length) {
+    grid.innerHTML = '<p>Geen resultaten gevonden.</p>';
+    return;
+  }
+
+  grid.innerHTML = list
+    .map(
+      (car) => `
+    <article class="card" tabindex="0" aria-label="${car.Merk} ${car.Model}">
+      <img src="${car.Afbeelding || 'img/placeholder.jpg'}" alt="${car.Merk} ${car.Model}" />
+      <div class="card-content">
+        <h2>${car.Merk} ${car.Model}</h2>
+        <p>${car.Opmerking || ''}</p>
+        <div class="details">Jaar: ${car.Jaar} | Schaal: ${car.Schaal} | Coureur: ${car.Coureur}</div>
+      </div>
+    </article>`
+    )
+    .join('');
+}
+
+searchInput.addEventListener('input', (e) => {
+  const term = e.target.value.toLowerCase();
+  const filtered = cars.filter(
+    (car) =>
+      car.Merk.toLowerCase().includes(term) ||
+      car.Model.toLowerCase().includes(term) ||
+      (car.Categorie && car.Categorie.toLowerCase().includes(term))
+  );
+  displayCars(filtered);
+});
+
+fetchData();

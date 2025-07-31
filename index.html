@@ -2,25 +2,30 @@
 <html lang="nl">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Modelauto Collectie</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Auto Collectie</title>
   <link rel="stylesheet" href="style.css" />
-  <link rel="manifest" href="manifest.json" />
-  <link rel="icon" href="fav/favicon.ico" />
 </head>
 <body>
   <header>
-    <h1>Modelauto Collectie</h1>
-    <input type="text" id="searchInput" placeholder="Zoeken op merk, coureur..." />
+    <nav class="navbar">
+      <div class="container">
+        <h1 class="logo">AutoCollectie</h1>
+        <input type="search" id="search" placeholder="Zoek op merk, model..." aria-label="Zoeken" />
+      </div>
+    </nav>
   </header>
 
-  <main id="gridContainer"></main>
+  <main class="container">
+    <section id="grid" class="grid"></section>
+  </main>
 
   <footer>
-    Gemaakt met ❤️ door [Jouw Naam]
+    <div class="container">
+      <p>© 2025 AutoCollectie - Alle rechten voorbehouden</p>
+    </div>
   </footer>
 
-  <script src="app.js"></script>
   <script src="script.js"></script>
 </body>
 </html>
