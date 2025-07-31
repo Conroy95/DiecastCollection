@@ -27,7 +27,7 @@ function displayCars(list) {
         ? car.Afbeelding.startsWith('img/')
           ? car.Afbeelding
           : `img/${car.Afbeelding}`
-        : 'img/placeholder.jpg';
+        : 'img/placeholder.png';
 
       const opmerking = car.Opmerking && car.Opmerking !== '-' ? car.Opmerking : '';
       const categorie = car.Categorie || '';
