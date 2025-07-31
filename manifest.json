@@ -1,6 +1,6 @@
 {
-  "name": "Modelauto Collectie",
-  "short_name": "Modelauto's",
+  "name": "Race Collectie",
+  "short_name": "Collectie",
   "icons": [
     {
       "src": "fav/android-chrome-192x192.png",
@@ -13,8 +13,8 @@
       "type": "image/png"
     }
   ],
-  "start_url": ".",
+  "start_url": "/",
   "display": "standalone",
-  "theme_color": "#222222",
+  "theme_color": "#d32f2f",
   "background_color": "#ffffff"
 }
