@@ -184,9 +184,19 @@
     "Model":"Dallara P217",
     "Jaar":2018,
     "Schaal":"1:43",
-    "Coureur":"Cetilar Villorba Corse",
+    "Coureur":"Cetilar Villorba Corse - No.47",
     "Afbeelding":"15.png",
     "Opmerking":"Boxed - S7027",
+    "Categorie":"Le Mans"
+  },
+  {
+    "Merk":"Spark Models",
+    "Model":"Oreca 07 - Gibson",
+    "Jaar":2017,
+    "Schaal":"1:43",
+    "Coureur":"Jackie Chan DC Racing - No.37",
+    "Afbeelding":"16.png",
+    "Opmerking":"Boxed - S5823",
     "Categorie":"Le Mans"
   }
 ]
