@@ -42,7 +42,10 @@ body {
   top: 0;
   z-index: 100;
   flex-wrap: wrap;
+  width: 100vw;              /* ← Zorgt dat hij de volledige breedte beslaat */
+  margin-left: calc(-50vw + 50%);  /* ← Zorgt dat hij niet meebeweegt met padding van container */
 }
+
 
 .logo {
   font-family: 'Orbitron', sans-serif;
@@ -232,3 +235,4 @@ body {
     font-size: 1.6rem;
   }
 }
+
